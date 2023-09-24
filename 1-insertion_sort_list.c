@@ -16,7 +16,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		current = head;
 		tmp = head->next;
-		if (current-> n > tmp->n)
+		if (current->n > tmp->n)
 		{
 			swap((int *)&(current->n), (int *)&(tmp->n));
 			print_list(*list);
@@ -33,35 +33,8 @@ void insertion_sort_list(listint_t **list)
 				}
 				current = current->prev;
 			}
-			
+
 		}
 		head = head->next;
-	}
-	
-}
-void insertion_sort(int *array, size_t size)
-{
-	size_t i, j;
-
-	for (i = 0; i < size - 1; i++)
-	{
-		if (array[i] > array[i + 1])
-		{
-			swap(&array[i], &array[i + 1]);
-			print_array(array, size);
-			for (j = i; j > 0; j--)
-			{
-				if (array[j] < array[j - 1])
-				{
-					swap(&array[j], &array[j - 1]);
-					print_array(array, size);
-				}
-				else
-				{
-					break;
-				}
-			}
-			
-		}
 	}
 }
