@@ -13,6 +13,8 @@ void selection_sort(int *array, size_t size)
 	int min;
 
 	index = 0;
+	if (size < 2)
+		return;
 	while (index < size)
 	{
 		min = array[index];
