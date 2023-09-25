@@ -9,28 +9,22 @@
 */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, index, index_found, b;
+	size_t i, j, index;
 
-	index = 0;
-	if (size < 2)
-		return;
-	while (index < size)
+	for (i = 0; i < size - 1; i++)
 	{
-		index_found = index;
-		b = 0;
-		for (i = index; i < size; i++)
+		index = i;
+		for (j = i + 1; j < size; j++)
 		{
-			if (array[index_found] > array[i])
+			if (array[index] > array[j])
 			{
-				index_found = i;
-				b = 1;
+				index = j;
 			}
 		}
-		if (b == 1)
+		if (index != i)
 		{
-			swap(&array[index], &array[index_found]);
+			swap(&array[index], &array[i]);
 			print_array(array, size);
 		}
-		index++;
 	}
 }
