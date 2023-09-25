@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include "sort.h"
 /**
+ * swap_bundle - This function permit to swap to integer
+ *
+ * @a: The first integer
+ * @b: The adress of the second integer
+ * Return: Nothing
+*/
+void swap_bundle(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+/**
  * bubble_sort - This function sorts an array of integers in ascending order
  * using the buddle sort algorithm
  *
@@ -19,23 +32,10 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[i] > array[i + 1])
 			{
-				swap(&array[i], &array[i + 1]);
+				swap_bundle(&array[i], &array[i + 1]);
 				print_array(array, size);
 			}
 		}
 		size_a--;
 	}
-}
-/**
- * swap - This function permit to swap to integer
- *
- * @a: The first integer
- * @b: The adress of the second integer
- * Return: Nothing
-*/
-void swap(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
 }

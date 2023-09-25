@@ -1,6 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "sort.h"
+/**
+ * swap_select - This function permit to swap to integer
+ *
+ * @a: The first integer
+ * @b: The adress of the second integer
+ * Return: Nothing
+*/
+void swap_select(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
 /**
  * selection_sort - This function sort the array by the selection algorithm
  *
@@ -24,7 +36,7 @@ void selection_sort(int *array, size_t size)
 		}
 		if (index != i)
 		{
-			swap(&array[index], &array[i]);
+			swap_select(&array[index], &array[i]);
 			print_array(array, size);
 		}
 	}
