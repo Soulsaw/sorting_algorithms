@@ -10,21 +10,18 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i, index, index_found, b;
-	int min;
 
 	index = 0;
 	if (size < 2)
 		return;
 	while (index < size)
 	{
-		min = array[index];
 		index_found = index;
 		b = 0;
 		for (i = index; i < size; i++)
 		{
-			if (min > array[i])
+			if (array[index_found] > array[i])
 			{
-				min = array[i];
 				index_found = i;
 				b = 1;
 			}
