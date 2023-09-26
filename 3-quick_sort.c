@@ -43,6 +43,8 @@ int partition_array(int *array, int index, int last, size_t size)
 		}
 	}
 	i++;
+	if (array[i] == array[last])
+		return (i);
 	swap_quick(&array[i], &array[last]);
 	print_array(array, size);
 
