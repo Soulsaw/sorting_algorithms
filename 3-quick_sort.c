@@ -43,7 +43,6 @@ int partition_array(int *array, int index, int last, size_t size)
 		}
 	}
 	i++;
-	printf("Echange [%d]->[%d]\n", array[i], array[last - 1]);
 	swap_quick(&array[i], &array[last - 1]);
 	print_array(array, size);
 
