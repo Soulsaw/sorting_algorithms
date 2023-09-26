@@ -27,11 +27,11 @@ int partition_array(int *array, int index, int last, size_t size)
 {
 	int pivot, i, j;
 
-	pivot = array[last - 1];
+	pivot = array[last];
 
 	i = index - 1;
 
-	for (j = index; j < last - 1; j++)
+	for (j = index; j < last; j++)
 	{
 		if (array[j] <= pivot)
 		{
@@ -43,9 +43,7 @@ int partition_array(int *array, int index, int last, size_t size)
 		}
 	}
 	i++;
-	if (array[i] == array[last - 1])
-		return (i + 1);
-	swap_quick(&array[i], &array[last - 1]);
+	swap_quick(&array[i], &array[last]);
 	print_array(array, size);
 
 	return (i);
@@ -60,14 +58,14 @@ int partition_array(int *array, int index, int last, size_t size)
 */
 void quick_sort_make(int *array, int start, int end, size_t size)
 {
-	int index;
 
-	if (start >= end || start < 0)
-		return;
+	if (start < end)
+	{
+		int index = partition_array(array, start, end, size);
 
-	index = partition_array(array, start, end, size);
-	quick_sort_make(array, start, index - 1, size);
-	quick_sort_make(array, index + 1, end, size);
+		quick_sort_make(array, start, index - 1, size);
+		quick_sort_make(array, index + 1, end, size);
+	}
 }
 /**
  * quick_sort - This function sort an array of integer using quick sort
@@ -77,6 +75,6 @@ void quick_sort_make(int *array, int start, int end, size_t size)
 */
 void quick_sort(int *array, size_t size)
 {
-	quick_sort_make(array, 0, size, size);
+	quick_sort_make(array, 0, size - 1, size);
 }
 
