@@ -24,7 +24,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *head, *tmp, *current, *idxstart = *list, *idxend;
 	int b = 0;
 
-	if (!head)
+	if (!idxstart)
 		return;
 	do {
 		head = idxstart;
